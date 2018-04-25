@@ -15,7 +15,7 @@ calcGraph = 0
 
 for chunk in iter(lambda: file.read(n), ''):
     countChar += 1
-    if countChar % 10000000 == 0:
+    if countChar % 50000000 == 0:
         calcGraph = countChar/1000000
         break
 
@@ -63,23 +63,24 @@ for w in wordArray:
 distSentence = distSentence[:150]
 distWord = distWord[:20]
 
-xlocations = np.array(range(len(distWord)))+0.5
-width = 1
-bar(xlocations, distWord, width=width)
-yticks(np.arange(0, max(distWord), 10000*calcGraph))
-xticks(xlocations + width/2, np.arange(0, len(distWord) + 1, 1))
-title("Word Length Distribution")
-gca().get_xaxis().tick_bottom()
-gca().get_yaxis().tick_left()
-
-#np.arange(0, len(distWord) + 1, 1
-show()
-
-#xlocations = np.array(range(len(distSentence)))+0.5
+#xlocations = np.array(range(len(distWord)))+0.5
 #width = 1
-#bar(xlocations, distSentence, width=width)
-#yticks(np.arange(0, max(distSentence), 15*calcGraph))
-#xticks(np.arange(0, len(distSentence) + 1, 20))
-#title("Sentence Length Distribution")
+#bar(xlocations, distWord, width=width)
+#yticks(np.arange(0, max(distWord), 10000*calcGraph))
+#xticks(xlocations + width/2, np.arange(0, len(distWord) + 1, 1))
+#title("Word Length Distribution")
 #gca().get_xaxis().tick_bottom()
 #gca().get_yaxis().tick_left()
+
+#np.arange(0, len(distWord) + 1, 1
+#show()
+
+xlocations = np.array(range(len(distSentence)))+0.5
+width = 1
+bar(xlocations, distSentence, width=width)
+yticks(np.arange(0, max(distSentence), 15*calcGraph))
+xticks(np.arange(0, len(distSentence) + 1, 20))
+title("Sentence Length Distribution")
+gca().get_xaxis().tick_bottom()
+gca().get_yaxis().tick_left()
+show()
